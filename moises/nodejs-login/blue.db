@@ -1,0 +1,6 @@
+CREATE TABLE mensagens_azuis (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    email TEXT,
+    mensagem TEXT
+);

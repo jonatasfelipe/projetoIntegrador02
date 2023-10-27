@@ -1,0 +1,8 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    email TEXT UNIQUE,
+    telefone TEXT,
+    endereco TEXT,
+    senha TEXT
+);
