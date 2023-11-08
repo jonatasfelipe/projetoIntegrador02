@@ -1,6 +1,0 @@
-CREATE TABLE mensagens_verdes (
-    id INTEGER PRIMARY KEY,
-    nome TEXT,
-    email TEXT,
-    mensagem TEXT
-);
