@@ -1,6 +1,7 @@
 # projetoIntegrador02
+Projeto desenvolvido para a disciplina "Projeto Integrador" do segundo ano da faculdade Univesp no Curso de Ciência de Dados! 
 
-## Installation
+## Instalação
 
 ### FrontEnd
 
@@ -11,18 +12,18 @@
 ### BackEnd
 
   1. `$ cd desperdicio-backend`
-  2. Change your mySQL database data `db.js`
-  3. Create database 'your_database_name'
-  4. Run script `mysql_script.sql` 
+  2. Altere os dados do seu banco de dados MySQL no arquivo `db.js`
+  3. Crie a sua base dentro do mysql 'nome da sua base'
+  4. Rode o script `mysql_script.sql` 
   5. `$ npm install` or `$ yarn install`
   6. `$ npm rum dev`
   
-## Functionalities
+## Funcionalidades
 
-  + Create donnations in the database
-  + Read donnations in the database
+  + Criar doações na base de dados
+  + Ler as doações na base de dados
   
-## Used Libraries
+## Bibliotecas utilizadas
 
 ### Front-end
 
