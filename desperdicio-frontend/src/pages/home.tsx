@@ -137,6 +137,7 @@ function Home() {
                 background-color: #E9CA5D;
                 padding: 10px;
                 min-height: 50px;
+                min-width: 100px;
                 border-radius: 20px;
               }
               .Center {
@@ -154,6 +155,11 @@ function Home() {
                 justify-content: center;
                 padding: 0.5em;
                 margin-top: 0.5em;
+              }
+              .sc-fqkvVR.fPuplT {
+                width: 90vw;
+                display: flex;
+                flex-wrap: wrap;
               }
             `}
         </style>
@@ -182,7 +188,7 @@ function Home() {
           <h2>Informações Pessoais</h2>
           <div className="input-box">
             <label htmlFor="name">Nome:</label>
-            <input type="text" id="name" name="name" onChange={handleChangeValues} required />
+            <input type="text" id="name" name="name" onChange={handleChangeValues} />
           </div>
           <div className="input-box">
             <label htmlFor="email">Email:</label>
@@ -213,16 +219,16 @@ function Home() {
         <div className='cardSuperior'>
           <h2>Doações Disponíveis</h2>
           <div className='doacoes'>
+            <Row>
+              {data.map((item, index) => (
+                <div className='card' key={index}>
+                  <p> Nome do Doador: {item.Name ? item.Name : 'Anônimo'}
+                    <br></br>Mensagem: {item.Message}
+                  </p>
+                </div>
+              ))}
+            </Row>
           </div>
-          <Row>
-            {data.map((item, index) => (
-              <div className='card' key={index}>
-                <p> Nome do Doador: {item.Name ? item.Name : 'Anônimo'}
-                  <br></br>Mensagem: {item.Message}
-                </p>
-              </div>
-            ))}
-          </Row>
         </div>
       </div>
     </div>
