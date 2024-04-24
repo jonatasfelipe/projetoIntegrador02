@@ -12,7 +12,7 @@ function Home() {
   const [data, setData] = useState<DonationData[]>([]);
 
   useEffect(() => {
-    Axios.get<DonationData[]>('http://localhost:3001/api/donations/ajude')
+    Axios.get<DonationData[]>('http://localhost:3001/ajude')
       .then((response) => setData(response.data));
   }, []);
 

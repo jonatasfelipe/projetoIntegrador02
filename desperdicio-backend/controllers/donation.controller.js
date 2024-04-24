@@ -1,48 +1,74 @@
-const express = require('express'),
-    router = express.Router()
+module.exports = function (app) {
 
 const service = require('../services/donation.service')
 
 //http://localhost:3001/api/donations/
-router.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
     const donations = await service.getAllDonations()
     res.send(donations)
+
+    // #swagger.tags = ['Retorna todas as doações']
+    // #swagger.description = 'Endpoint para obter todas as doações.'
 })
 
-router.get('/ajude', async (req, res) => {
+app.get('/ajude', async (req, res) => {
     const donations = await service.getAllDonationsHelp()
     res.send(donations)
+
+    // #swagger.tags = ['Retorna os pedidos de doações']
+    // #swagger.description = 'Endpoint para obter todas os pedidos de doações.'
 })
 
-router.get('/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
     const donation = await service.getDonationById(req.params.id)
     if (donation == undefined)
-        res.status(404).json('no record with given id : ' + req.params.id)
+        res.status(404).json('Sem dados para esse ID : ' + req.params.id)
     else
         res.send(donation)
+    
+        // #swagger.tags = ['Retorna uma doação específica']
+        // #swagger.description = 'Endpoint para obter uma doação específica.'
+        // #swagger.parameters['id'] = { description: 'ID da doação.' }
 })
 
-router.delete('/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
     const affectedRows = await service.deleteDonation(req.params.id)
     if (affectedRows == 0)
-        res.status(404).json('no record with given id : ' + req.params.id)
+        res.status(404).json('Sem dados para esse ID : ' + req.params.id)
     else
-        res.send('deleted successfully.')
+        res.send('deletado com sucesso.')
+
+        // #swagger.tags = ['Deleta uma doação específica']
+        // #swagger.description = 'Endpoint para deletar uma doação específica.'
+        // #swagger.parameters['id'] = { description: 'ID da doação.' }
 })
 
-router.post('/', async (req, res) => {
+app.post('/', async (req, res) => {
     const affectedRows = await service.createDonation(req.body)
     res.status(201).send('Enviado com sucesso.')
+
+    // #swagger.tags = ['Cadastra uma doação ou um pedido de doação']
+    // #swagger.description = 'Endpoint para cadastrar uma doação ou um pedido de ajuda .'
+    // #swagger.parameters['name'] = { description: 'Nome.' }
+    // #swagger.parameters['email'] = { description: 'Email.' }
+    // #swagger.parameters['tiporequisicao'] = { description: 'doando / precisando.' }
+    // #swagger.parameters['message'] = { description: 'Conteudo da doação ou da solicitação de ajuda!' }
 })
 
-router.put('/:id', async (req, res) => {
+app.put('/:id', async (req, res) => {
     const affectedRows = await service.updateDonation(req.body, req.params.id)
     if (affectedRows == 0)
-        res.status(404).json('no record with given id : ' + req.params.id)
+        res.status(404).json('Não existe essa doação para atualiza-la : ' + req.params.id)
     else
-        res.send('updated successfully.')
+        res.send('Atualizada com sucesso.')
+
+        // #swagger.tags = ['Atualiza uma doação específica']
+        // #swagger.description = 'Endpoint para atualizar uma doação específica.'
+        // #swagger.parameters['id'] = { description: 'ID da doação.' }
+        // #swagger.parameters['name'] = { description: 'Nome.' }
+        // #swagger.parameters['email'] = { description: 'Email.' }
+        // #swagger.parameters['tiporequisicao'] = { description: 'doando / precisando.' }
+        // #swagger.parameters['message'] = { description: 'Conteudo da doação ou da solicitação de ajuda!' }
 })
 
-
-
-module.exports = router;
+}

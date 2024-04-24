@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import { Aligner } from "./components/Aligner";
 import SobreNos from "./pages/sobre-nos";
 import Ajude from "./pages/ajude-alguem";
+import Index from "./pages/index";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Header />
         <Aligner>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Index />} />
+            <Route path="/doe" element={<Home />} />
             <Route path="/ajude" element={<Ajude />} />
             <Route path="/sobre-nos" element={<SobreNos />} />
           </Routes>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import Axios from 'axios';
-import { Row } from "../components/Row";
+import React, { useState, useEffect, ChangeEvent } from "react";
+import Axios from "axios";
+import Fome from "../assets/fome.jpg";
 
 interface DonationData {
   Name?: string;
@@ -11,13 +11,16 @@ function Home() {
   const [data, setData] = useState<DonationData[]>([]);
 
   useEffect(() => {
-    Axios.get<DonationData[]>('http://localhost:3001')
-      .then((response) => setData(response.data));
+    Axios.get<DonationData[]>("http://localhost:3001").then((response) =>
+      setData(response.data)
+    );
   }, []);
 
   const [values, setValues] = useState<any>();
 
-  const handleChangeValues = (value: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChangeValues = (
+    value: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setValues((prevValue: any) => ({
       ...prevValue,
       [value.target.name]: value.target.value,
@@ -35,20 +38,37 @@ function Home() {
     });
   };
 
+  const color = document.getElementById("cor_fundo") as HTMLElement;
+  const numero = document.getElementById("numero") as HTMLElement;
+
+  let tamanho = 0;
+  let quantidade = 70;
+  let tempo = setInterval(() => {
+    tamanho += 10;
+    quantidade += 70;
+    color.style.height = `${tamanho}%`;
+    numero.textContent = quantidade.toString();
+    if (quantidade === 700) {
+      clearInterval(tempo);
+    }
+  }, 700);
+
   return (
     <div>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Doação de Alimentos</title>
+        <title>Sem Desperdícios</title>
         <style>
           {`
+          @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
               body {
-                background-image: url("../src/assets/caixa-de-comida-1.jpg");
+                background-color: #E6BB90;
                 background-size: cover;
                 margin: 0;
                 padding: 0;
-                font-family: Arial, sans-serif;
+                font-family: "Roboto", Arial, sans-serif;
                 font-size: 16px;
                 height: 100vh;
               }
@@ -161,76 +181,98 @@ function Home() {
                 display: flex;
                 flex-wrap: wrap;
               }
+              .flex {
+                display: flex;
+              }
+              .textoPrincipalSuperior{
+                font-size: 7em;
+                  font-weight: bold;
+                  font-family:  "Roboto", sans-serif;
+                 color: #555;
+              }.textoSecundario{
+                font-size: 4em;
+                text-align:center;
+                  font-weight: bold;
+                  font-family:  "Roboto", sans-serif;
+                 color: #555;
+              }
+              .principalSuperior{
+                padding-top:1em;
+                align-items:center;
+                justify-content:space-between;
+              }
+              .contador{
+             transform: rotate(180deg);
+                position: relative;
+              
+            }
+            
+            .numero{
+                width: 100%;
+                text-align: center;
+                font-size: 7em;
+                font-weight: bold;
+                font-family:  "Roboto", sans-serif;
+               color: #555;
+                transform: rotate(-180deg);
+                mix-blend-mode: screen;
+                background-color: .contador{
+                  height:155px;
+                  width: 320px;
+               transform: rotate(180deg);
+                  margin: 200px 100px;
+                  position: relative; 
+              }
+              
+              .numero{
+                  width: 100%;
+                  text-align: center;
+                  font-size: 7em;
+                  font-weight: bold;
+                  font-family:  "Roboto", sans-serif;
+                 color: #555;
+                  position: absolute;
+                  transform: rotate(-180deg);
+                  mix-blend-mode: screen;
+                  background-color: #fff;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+              }
+            }
+            .fundo_cor{
+                transition: .2s;
+                transform-origin: bottom;
+                position: absolute;
+                display: block;
+                background-color: #E6BB90;
+            }
+            .fotoFome {
+              padding-left:2em;
+              border-radius:5em;
+            }
             `}
         </style>
       </head>
 
-      <div className='Center'>
-
-        <div className='cardSuperior'>
-          <h1>
-            Sobre a Importância de Doar Alimentos
-          </h1>
-          <p>
-
-            Doar alimentos desempenha um papel fundamental na construção de um mundo mais justo e na luta contra o desperdício. Quando compartilhamos o que temos em abundância com aqueles que enfrentam a fome, não apenas aliviamos o sofrimento, mas também reduzimos o desperdício de recursos preciosos.
-
-
-            Cada doação é um ato de solidariedade que fortalece comunidades e promove a sustentabilidade. Ao combater o desperdício de alimentos, contribuímos para a preservação do meio ambiente e para a construção de um futuro mais compassivo e equitativo para todos.
-
-
-            Cada pequeno gesto de doação é um passo na direção certa, mostrando como a empatia e a responsabilidade podem fazer do nosso mundo um lugar melhor.
-
-          </p>
-        </div>
-
-        <form id="signup-form">
-          <h2>Informações Pessoais</h2>
-          <div className="input-box">
-            <label htmlFor="name">Nome:</label>
-            <input type="text" id="name" name="name" onChange={handleChangeValues} />
-          </div>
-          <div className="input-box">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" onChange={handleChangeValues} required />
-          </div>
-          <div className="input-box">
-            <label htmlFor="tipoRequisicao">Eu estou:</label>
-            <div className='input-box-radio'>
-              <input type="radio" value="doando" id="tiporequisicao" name="tiporequisicao" onChange={handleChangeValues} required />
-              <label>Doando</label>
-            </div>
-            <div className='input-box-radio'>
-              <input type="radio" value="precisando" id="tiporequisicao" name="tiporequisicao" onChange={handleChangeValues} required />
-              <label>Precisando</label>
-            </div>
-          </div>
-          <h2>Mensagem</h2>
-          <div className="input-box">
-            <textarea id="message" name="message" rows={4} cols={35} onChange={handleChangeValues} placeholder="Digite aqui sua doação ou aquilo que você necessita"></textarea>
-          </div>
-          <div className="button-container">
-            <button id="btnEnviar" className="btn" onClick={handleClickButton} style={{ backgroundColor: '#0074d9' }}>
-              Enviar
-            </button>
-          </div>
-        </form>
-
-        <div className='cardSuperior'>
-          <h2>Doações Disponíveis</h2>
-          <div className='doacoes'>
-            <Row>
-              {data.map((item, index) => (
-                <div className='card' key={index}>
-                  <p> Nome do Doador: {item.Name ? item.Name : 'Anônimo'}
-                    <br></br>Mensagem: {item.Message}
-                  </p>
-                </div>
-              ))}
-            </Row>
-          </div>
-        </div>
+    <div className="flex principalSuperior">
+      <span className="textoPrincipalSuperior">+ DE </span>
+      <div className="contador">
+        <div className="fundo_cor" id="cor_fundo"></div>
+        <div className="numero" id="numero"></div>
       </div>
+      <span className="textoPrincipalSuperior">MILHÕES</span>
+    </div>
+
+    <div className="flex principalSuperior">
+      <div><h1 className="textoSecundario">SOFREM COM A FOME NO MUNDO!</h1></div>
+      <div><img className="fotoFome" src={Fome} alt="" /></div>
+    </div>
+        
+
+      
+
+        
     </div>
   );
 }

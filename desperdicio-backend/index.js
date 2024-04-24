@@ -1,10 +1,10 @@
-const express = require('express'),
-    app = express(),
-    bodyparser = require('body-parser');
-require('express-async-errors')
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger-output.json');
+const bodyparser = require('body-parser');
+const express = require('express');
+const app = express();
 
-const db = require('./db'),
-    donationRoutes = require('./controllers/donation.controller')
+const db = require('./db');
 
 const cors = require("cors");
 
@@ -12,12 +12,8 @@ const cors = require("cors");
 //middleware
 app.use(cors());
 app.use(bodyparser.json())
-app.use('/api/donations', donationRoutes)
-app.use((err, req, res, next) => {
-    console.log(err)
-    res.status(err.status || 500).send('Something went wrong!')
-})
-
+//app.use('/api/donations', donationRoutes)
+app.use('/api/donations', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 //first make sure db connection is successful
 //then start the express server.
@@ -28,3 +24,5 @@ db.query("SELECT 1")
             () => console.log('server started at 3001'))
     })
     .catch(err => console.log('db connection failed. \n' + err))
+
+require('./controllers/donation.controller.js')(app);

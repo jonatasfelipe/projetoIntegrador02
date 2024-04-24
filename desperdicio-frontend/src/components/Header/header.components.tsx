@@ -14,7 +14,9 @@ function Header() {
           <nav>
             <Link to="/">Página inicial</Link>
 
-            <Link to="/ajude">Contribua com Alguém</Link>
+            <Link to="/doe">Não sabe para quem doar?</Link>
+           
+            <Link to="/ajude">Pedidos de doações</Link>
 
             <Link to="/sobre-nos">Sobre nós</Link>
 
