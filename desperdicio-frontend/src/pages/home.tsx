@@ -44,7 +44,7 @@ function Home() {
         <style>
           {`
               body {
-                background-image: url("../src/assets/caixa-de-comida-1.jpg");
+                background-image: url("https://i.ibb.co/XLVZ2xW/caixa-de-comida-1.jpg");
                 background-size: cover;
                 margin: 0;
                 padding: 0;
