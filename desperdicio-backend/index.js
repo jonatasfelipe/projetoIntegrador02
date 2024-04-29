@@ -8,14 +8,11 @@ const db = require('./db');
 
 const cors = require("cors");
 
-const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
-
-
 //middleware
 app.use(cors());
 app.use(bodyparser.json())
 //app.use('/api/donations', donationRoutes)
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile, {customCssUrl: CSS_URL} ));
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 //first make sure db connection is successful
 //then start the express server.
