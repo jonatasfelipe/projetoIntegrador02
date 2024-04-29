@@ -2,7 +2,7 @@ module.exports = function (app) {
 
 const service = require('../services/donation.service')
 
-//http://localhost:3001/api/donations/
+//https://projeto-integrador02-backend-cst3js8t6-jonatasfelipes-projects.vercel.app/api/donations/
 app.get('/', async (req, res) => {
     const donations = await service.getAllDonations()
     res.send(donations)

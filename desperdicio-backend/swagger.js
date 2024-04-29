@@ -8,7 +8,7 @@ const doc = {
     },
     servers: [
         {
-            url: 'http://localhost:3001'
+            url: 'https://projeto-integrador02-backend-cst3js8t6-jonatasfelipes-projects.vercel.app/'
         }
     ],
     components: {
