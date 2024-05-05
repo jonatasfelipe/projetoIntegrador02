@@ -71,4 +71,16 @@ app.put('/:id', async (req, res) => {
         // #swagger.parameters['message'] = { description: 'Conteudo da doação ou da solicitação de ajuda!' }
 })
 
+app.put('/contribua/:id', async (req, res) => {
+    const affectedRows = await service.updateContributed (req.body, req.params.id)
+    if (affectedRows == 0)
+        res.status(404).json('Não existe essa doação para contribuir : ' + req.params.id)
+    else
+        res.send('Sua contribuição foi registrada com sucesso.')
+
+        // #swagger.tags = ['Registra a confirmação de uma doação específica']
+        // #swagger.description = 'Endpoint para atualizar a confirmação de ajuda à uma doação específica.'
+        // #swagger.parameters['id'] = { description: 'ID da doação.' }
+})
+
 }

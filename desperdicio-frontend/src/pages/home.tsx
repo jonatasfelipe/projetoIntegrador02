@@ -11,7 +11,7 @@ function Home() {
   const [data, setData] = useState<DonationData[]>([]);
 
   useEffect(() => {
-    Axios.get<DonationData[]>('http://localhost:3001')
+    Axios.get<DonationData[]>('https://projeto-integrador02-backend.vercel.app')
       .then((response) => setData(response.data));
   }, []);
 
@@ -25,7 +25,7 @@ function Home() {
   };
 
   const handleClickButton = () => {
-    Axios.post("http://localhost:3001", {
+    Axios.post("https://projeto-integrador02-backend.vercel.app", {
       Name: values.name,
       Email: values.email,
       TipoRequisicao: values.tiporequisicao,

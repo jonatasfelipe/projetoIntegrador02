@@ -36,3 +36,12 @@ module.exports.createDonation = async (obj) => {
     const [result] = await db.query(sql, values);
     return result.affectedRows;
   }
+
+    // Método para atualizar o status de uma doação que está recebendo ajuda
+    module.exports.updateContributed = async ( obj,id) => {
+        const sql = "UPDATE donations SET TipoRequisicao = 'recebeu ajuda' WHERE id = ?";
+        const values = [id];
+      
+        const [result] = await db.query(sql, values);
+        return result.affectedRows;
+      }
