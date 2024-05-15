@@ -82,6 +82,19 @@
         }
       }
     },
+    "/recebeu-ajuda": {
+      "get": {
+        "tags": [
+          "Retorna os pedidos de doações que já receberam ajuda"
+        ],
+        "description": "Endpoint para obter todos os pedidos de doações que já receberam ajuda.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/{id}": {
       "get": {
         "tags": [
@@ -179,6 +192,33 @@
             "schema": {
               "type": "string"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/contribua/{id}": {
+      "put": {
+        "tags": [
+          "Registra a confirmação de uma doação específica"
+        ],
+        "description": "Endpoint para atualizar a confirmação de ajuda à uma doação específica.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID da doação."
           }
         ],
         "responses": {

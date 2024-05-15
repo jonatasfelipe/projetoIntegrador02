@@ -19,6 +19,8 @@ function Header() {
             <Link to="/ajude">Pedidos de doações</Link>
 
             <Link to="/sobre-nos">Sobre nós</Link>
+            
+            <Link to="/relatorio">Relatorio</Link>
 
           </nav>
         </S.AlignerHeader>
