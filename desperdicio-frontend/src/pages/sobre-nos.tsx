@@ -12,7 +12,7 @@ function SobreNos() {
         <style>
           {`
           body {
-            background-image: url("https://i.ibb.co/zF3wkK9/caixa-de-comida-2.jpg");
+            background-image: url("https://i.ibb.co/YXKkjtP/Whats-App-Image-2024-05-11-at-17-36-20-2.jpg");
             background-size: cover;
             margin: 0;
             padding: 0;

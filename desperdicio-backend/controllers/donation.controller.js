@@ -19,6 +19,14 @@ app.get('/ajude', async (req, res) => {
     // #swagger.description = 'Endpoint para obter todas os pedidos de doações.'
 })
 
+app.get('/recebeu-ajuda', async (req, res) => {
+    const received_help = await service.getAllDonationsAlreadyHelped()
+    res.send(received_help)
+
+    // #swagger.tags = ['Retorna os pedidos de doações que já receberam ajuda']
+    // #swagger.description = 'Endpoint para obter todos os pedidos de doações que já receberam ajuda.'
+})
+
 app.get('/:id', async (req, res) => {
     const donation = await service.getDonationById(req.params.id)
     if (donation == undefined)

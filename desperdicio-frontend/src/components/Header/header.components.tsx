@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/doacoes.png";
 import { Aligner } from "../Aligner";
 import * as S from './header.style';
 
@@ -15,7 +15,7 @@ function Header() {
             <Link to="/">Página inicial</Link>
 
             <Link to="/doe">Não sabe para quem doar?</Link>
-           
+
             <Link to="/ajude">Pedidos de doações</Link>
 
             <Link to="/sobre-nos">Sobre nós</Link>

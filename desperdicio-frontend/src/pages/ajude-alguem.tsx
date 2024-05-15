@@ -12,8 +12,8 @@ interface DonationData {
 const idvalue = 99;
 
 function Home() {
-	const [data, setData] = useState<DonationData[]>([]);
-	
+  const [data, setData] = useState<DonationData[]>([]);
+
   useEffect(() => {
     Axios.get<DonationData[]>('https://projeto-integrador02-backend.vercel.app/ajude')
       .then((response) => setData(response.data));
@@ -22,33 +22,33 @@ function Home() {
   const [values, setValues] = useState<any>();
 
   const handleChangeValues = (value: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setValues((prevValue: any) => ({...prevValue, [value.target.name]: value.target.value, }));
+    setValues((prevValue: any) => ({ ...prevValue, [value.target.name]: value.target.value, }));
   };
-  
-const handleClickButton2 = () => {
 
-	const response = confirm("Confirma ajudar agora?  ");
-	if (response) {
-		//alert("1");
-		try {		
-			//alert('https://projeto-integrador02-backend.vercel.app/api/donations/' + values.ChkSim);
-			Axios.put('https://projeto-integrador02-backend.vercel.app/contribua/' + values.ChkSim)
-			.then(response => {
-				alert('Doação atendida!!');
-			})
-			.catch(error => {
-				alert(error.response.data);
-			});			
-		}
-		catch(err) {
-			alert("Erro: ao realizar o método a contribuição");
-		};					
-	} else {
-		alert("Não ajudando");
-	};
-};	
-  
-  
+  const handleClickButton2 = () => {
+
+    const response = confirm("Confirma ajudar agora?  ");
+    if (response) {
+      //alert("1");
+      try {
+        //alert('https://projeto-integrador02-backend.vercel.app/api/donations/' + values.ChkSim);
+        Axios.put('https://projeto-integrador02-backend.vercel.app/contribua/' + values.ChkSim)
+          .then(response => {
+            alert('Doação atendida!!');
+          })
+          .catch(error => {
+            alert(error.response.data);
+          });
+      }
+      catch (err) {
+        alert("Erro: ao realizar o método a contribuição");
+      };
+    } else {
+      alert("Não ajudando");
+    };
+  };
+
+
   return (
     <div>
       <head>
@@ -58,7 +58,7 @@ const handleClickButton2 = () => {
         <style>
           {`
               body {
-                background-image: url("../src/assets/caixa-de-comida-1.jpg");
+                background-image: url("https://i.ibb.co/CJY8kD0/Whats-App-Image-2024-05-11-at-17-36-21-1.jpg");
                 background-size: cover;
                 margin: 0;
                 padding: 0;
@@ -174,7 +174,7 @@ const handleClickButton2 = () => {
         </style>
       </head>
 
-		
+
       <div className='Center'>
 
         <div className='cardSuperior'>
@@ -190,38 +190,38 @@ const handleClickButton2 = () => {
           </p>
         </div>
 
-		<form id="Ajude-form">
-        <div className='cardSuperior'>
-          <h2>Encontre Alguém para ajudar!</h2>
-          <div className='doacoes'>
+        <form id="Ajude-form">
+          <div className='cardSuperior'>
+            <h2>Encontre Alguém para ajudar!</h2>
+            <div className='doacoes'>
+            </div>
+            <Row id="rows">
+              {data.map((item, index) => (
+                <div className='card' key={index}>
+                  <p> Ajude o pedido N° : {item.ID}
+                    <br></br>Nome: {item.Name ? item.Name : 'Anônimo'}
+                    <br></br>Email: {item.Email}
+                    <br></br>Mensagem: {item.Message}
+                  </p>
+
+                  <fieldset>
+                    <legend>Ajudar</legend>
+                    <div>
+                      <input type="checkbox" id="ChkSim" name="ChkSim" value={item.ID} onChange={handleChangeValues} />
+                      <label htmlFor="ChkSim">Marque aqui para confirmar sua ajuda!</label>
+                    </div>
+                  </fieldset>
+
+                  <div className="button-container">
+                    <button id="btnAjudar" className="btn" onClick={handleClickButton2} style={{ backgroundColor: '#0074d9' }}>
+                      Ajudar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </Row>
           </div>
-          <Row id="rows">
-            { data.map((item, index) => (
-				<div className='card' key={index}>
-					<p> Ajude o pedido N° : {item.ID}
-					<br></br>Nome: {item.Name ? item.Name : 'Anônimo'}
-					<br></br>Email: {item.Email}
-					<br></br>Mensagem: {item.Message}
-					</p>				
-					
-					<fieldset>
-					  <legend>Ajudar</legend>
-					  <div>
-						<input type="checkbox" id="ChkSim" name="ChkSim" value={item.ID} onChange={handleChangeValues}/>
-						<label htmlFor="ChkSim">Marque aqui para confirmar sua ajuda!</label>
-					  </div>
-					</fieldset>	
-										
-					<div className="button-container">
-						<button id="btnAjudar" className="btn" onClick={handleClickButton2} style={{ backgroundColor: '#0074d9' }}>
-							Ajudar
-						</button>
-					</div>					
-				</div>
-			))}
-          </Row>
-        </div>
-		</form>
+        </form>
       </div>
     </div >
   );

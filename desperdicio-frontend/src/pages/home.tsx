@@ -44,7 +44,7 @@ function Home() {
         <style>
           {`
               body {
-                background-image: url("https://i.ibb.co/XLVZ2xW/caixa-de-comida-1.jpg");
+                background-image: url("https://i.ibb.co/vB7YLBZ/Whats-App-Image-2024-05-11-at-17-36-20-1.jpg");
                 background-size: cover;
                 margin: 0;
                 padding: 0;

@@ -10,6 +10,11 @@ module.exports.getAllDonationsHelp = async () => {
     return records;
 }
 
+module.exports.getAllDonationsAlreadyHelped = async () => {
+    const [records] = await db.query("SELECT * FROM donations WHERE TipoRequisicao = 'recebeu ajuda' ")
+    return records;
+}
+
 module.exports.getDonationById = async (id) => {
     const [[record]] = await db.query("SELECT * FROM donations WHERE id = ?", [id])
     return record;

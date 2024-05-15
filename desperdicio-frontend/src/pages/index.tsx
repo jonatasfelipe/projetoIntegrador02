@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import Axios from "axios";
-import Fome from "../assets/fome.jpg";
 
 interface DonationData {
   Name?: string;
@@ -42,23 +41,22 @@ function Home() {
   const numero = document.getElementById("numero") as HTMLElement;
 
   let tamanho = 0;
-  let quantidade = 70;
+  let quantidade = 0;
   let tempo = setInterval(() => {
-    tamanho += 10;
-    quantidade += 70;
+    tamanho += 1;
+    quantidade += 1;
     color.style.height = `${tamanho}%`;
     numero.textContent = quantidade.toString();
-    if (quantidade === 700) {
+    if (quantidade === 90) {
       clearInterval(tempo);
     }
-  }, 700);
+  }, 90);
 
   return (
     <div>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sem Desperdícios</title>
         <style>
           {`
           @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -248,6 +246,7 @@ function Home() {
                 background-color: #E6BB90;
             }
             .fotoFome {
+              max-width:100%;
               padding-left:2em;
               border-radius:5em;
             }
@@ -255,24 +254,28 @@ function Home() {
         </style>
       </head>
 
-    <div className="flex principalSuperior">
-      <span className="textoPrincipalSuperior">+ DE </span>
-      <div className="contador">
-        <div className="fundo_cor" id="cor_fundo"></div>
-        <div className="numero" id="numero"></div>
+      <div className="flex principalSuperior">
+        <span className="textoPrincipalSuperior">+ DE R$</span>
+        <div className="contador">
+          <div className="fundo_cor" id="cor_fundo"></div>
+          <div className="numero" id="numero"></div>
+        </div>
+        <span className="textoPrincipalSuperior">MILHÕES</span>
       </div>
-      <span className="textoPrincipalSuperior">MILHÕES</span>
-    </div>
 
-    <div className="flex principalSuperior">
-      <div><h1 className="textoSecundario">SOFREM COM A FOME NO MUNDO!</h1></div>
-      <div><img className="fotoFome" src={Fome} alt="" /></div>
-    </div>
-        
+      <div className="flex principalSuperior">
+        <div><h1 className="textoSecundario">JÁ DESTINADOS!</h1></div>
+        <div><img className="fotoFome" src="https://i.ibb.co/1m2HYJy/Whats-App-Image-2024-05-11-at-17-36-19.jpg" alt="" /></div>
+      </div>
 
-      
+      <div className="flex principalSuperior">
+        <div><h1 className="textoSecundario">*Segundo dados do PIX RS</h1></div>
+      </div>
 
-        
+
+
+
+
     </div>
   );
 }

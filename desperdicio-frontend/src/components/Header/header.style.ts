@@ -7,12 +7,19 @@ export const Wrapper = styled('header')`
 
   a {
     text-decoration: none;
+    font-weight: bold;
+    background-color: #FF9F00;
+    padding: 1em;
+    border-radius: 1em;
     color: ${({ theme }) => theme.colors.black};
     margin-left: 1rem;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+  img {
+    max-width:100px;
   }
 `
 
