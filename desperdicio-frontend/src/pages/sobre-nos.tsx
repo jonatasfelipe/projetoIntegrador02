@@ -18,6 +18,7 @@ function SobreNos() {
             padding: 0;
             font-family: Arial, sans-serif;
             background-repeat: no-repeat;
+            height: 100vh;
           }
           .Center {
             display: flex;
@@ -40,25 +41,25 @@ function SobreNos() {
       </head>
       <div className="Center">
         <div className="cardSuperior">
-          <Titulo>Missão</Titulo>
-          <Texto>Na SemFome-LTDA, a nossa missão é fazer a diferença no mundo ao combater o desperdício de alimentos e promover a sustentabilidade. Acreditamos que, através da tecnologia inovadora, podemos criar soluções que ajudam a reduzir o desperdício de alimentos em todo o mundo.</Texto>
+          <Titulo>Lema</Titulo>
+          <Texto>“Juntos, podemos construir um futuro melhor!”</Texto>
 
-          <Titulo>Quem Somos</Titulo>
-          <Texto>Na SemFome-LTDA, somos um grupo diversificado de apaixonados por tecnologia e amantes da gastronomia. Combinamos a nossa paixão pela inovação com a nossa preocupação com o meio ambiente para desenvolver um sistema web revolucionário que aborda um dos problemas mais prementes da nossa era: o desperdício de alimentos.</Texto>
+          <Titulo>Objetivo</Titulo>
+          <Texto>Utilizar tecnologias digitais para otimizar a distribuição de bens e alimentos, garantindo eficiência, redução de desperdícios e maior alcance a indivíduos e comunidades em situação de vulnerabilidade social.</Texto>
 
-          <Titulo>O Nosso Compromisso</Titulo>
-          <Texto>Estamos empenhados em enfrentar o desafio do desperdício de alimentos com uma abordagem única e eficaz. Através do nosso sistema web, conectamos estabelecimentos de alimentos, instituições de caridade e consumidores, tornando possível a redistribuição de alimentos excedentes, em vez de desperdiçá-los. Estamos empenhados em criar uma sociedade onde todos tenham acesso a alimentos de qualidade, ao mesmo tempo que reduzimos o impacto ambiental do desperdício de alimentos.</Texto>
+          <Titulo>Missão </Titulo>
+          <Texto>Com nossos esforços coletivos queremos promover o acesso equitativo a bens e serviços essenciais para todas as pessoas.</Texto>
 
-          <Titulo>O Que Fazemos</Titulo>
-          <Texto>No coração da SemFome-LTDA está o nosso sistema web inovador. Ele permite que restaurantes, supermercados e outros estabelecimentos alimentares identifiquem e partilhem excedentes de alimentos com organizações de caridade locais. Além disso, os consumidores podem utilizar a nossa aplicação para descobrir oportunidades para adquirir alimentos excedentes a preços acessíveis, ajudando assim a reduzir o desperdício.</Texto>
+          <Titulo>Visão</Titulo>
+          <Texto>Queremos criar um mundo onde a tecnologia seja um instrumento para combater a pobreza, a desigualdade e a fome.</Texto>
 
-          <Titulo>Impacto Social e Ambiental</Titulo>
-          <Texto>Acreditamos que o desperdício de alimentos é um problema que pode ser combatido com tecnologia, empatia e colaboração. Ao trabalhar em estreita colaboração com empresas e instituições de caridade, estamos a reduzir a fome e a minimizar o impacto ambiental negativo causado pelo desperdício de alimentos. A cada tonelada de alimentos que é redirecionada para o consumo humano em vez de ser desperdiçada, estamos a fazer a nossa parte na luta contra as mudanças climáticas e a promoção da justiça alimentar.</Texto>
-
-          <Titulo>Junte-se a Nós</Titulo>
-          <Texto>Acreditamos que cada pessoa pode fazer a diferença na luta contra o desperdício de alimentos. Junte-se a nós nesta missão e faça parte da mudança. Seja um restaurante que deseja partilhar excedentes, uma instituição de caridade que deseja receber doações, ou um consumidor que deseja fazer escolhas alimentares mais conscientes, a SemFome-LTDA está aqui para o apoiar.</Texto>
-
-          <Titulo>A SemFome-LTDA está a construir um futuro mais sustentável, um prato de cada vez. Junte-se a nós nesta jornada!</Titulo>
+          <Titulo>Valores</Titulo>
+          <Texto>
+            1.  Integridade e Honestidade
+            2.	Contribuição social positiva
+            3.	Empatia por todos os seres vivos
+            4.	Democratização da tecnologia
+            5.	Proatividade e Trabalho de Equipe</Texto>
         </div>
       </div>
     </html>

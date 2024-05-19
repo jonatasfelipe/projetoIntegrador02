@@ -47,7 +47,7 @@ function Home() {
     quantidade += 1;
     color.style.height = `${tamanho}%`;
     numero.textContent = quantidade.toString();
-    if (quantidade === 90) {
+    if (quantidade === 100) {
       clearInterval(tempo);
     }
   }, 90);
@@ -258,7 +258,7 @@ function Home() {
         <span className="textoPrincipalSuperior">+ DE R$</span>
         <div className="contador">
           <div className="fundo_cor" id="cor_fundo"></div>
-          <div className="numero" id="numero"></div>
+          <div className="numero" id="numero">100</div>
         </div>
         <span className="textoPrincipalSuperior">MILHÕES</span>
       </div>
@@ -269,7 +269,7 @@ function Home() {
       </div>
 
       <div className="flex principalSuperior">
-        <div><h1 className="textoSecundario">*Segundo dados do PIX RS</h1></div>
+        <div><h3 className="textoSecundario">Fonte: <a href="https://estado.rs.gov.br/doacoes-via-pix-do-sos-rio-grande-do-sul-ultrapassam-r-100-milhoes">Governo do Estado do Rio Grande do Sul</a></h3></div>
       </div>
 
 

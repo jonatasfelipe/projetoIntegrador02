@@ -4,6 +4,8 @@ import { Row } from "../components/Row";
 
 interface DonationData {
   Name?: string;
+  Email: string;
+  TipoRequisicao: string;
   Message: string;
 }
 
@@ -24,7 +26,8 @@ function Home() {
     }));
   };
 
-  const handleClickButton = () => {
+  const handleClickButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     Axios.post("https://projeto-integrador02-backend.vercel.app", {
       Name: values.name,
       Email: values.email,
@@ -32,6 +35,7 @@ function Home() {
       Message: values.message,
     }).then((response) => {
       console.log(response);
+      window.location.replace("https://projeto-integrador02.vercel.app/");
     });
   };
 
@@ -40,7 +44,7 @@ function Home() {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Doação de Alimentos</title>
+        <title>Doações</title>
         <style>
           {`
               body {
@@ -169,17 +173,18 @@ function Home() {
 
         <div className='cardSuperior'>
           <h1>
-            Sobre a Importância de Doar Alimentos
+            Sobre as Doações
           </h1>
           <p>
+            <strong>Enfrente a Fome: </strong>
+            Doar alimentos é um ato nobre que alimenta corpos e nutre a esperança.
+          </p>
+          <p><strong>Vista a esperança:</strong>
+            Doar roupas, calçados e cobertores aquece corpos e corações. Uma doação pode significar a diferença entre o frio da rua e o aconchego de um lar.</p>
 
-            Doar alimentos desempenha um papel fundamental na construção de um mundo mais justo e na luta contra o desperdício. Quando compartilhamos o que temos em abundância com aqueles que enfrentam a fome, não apenas aliviamos o sofrimento, mas também reduzimos o desperdício de recursos preciosos.
-
-
-            Cada doação é um ato de solidariedade que fortalece comunidades e promove a sustentabilidade. Ao combater o desperdício de alimentos, contribuímos para a preservação do meio ambiente e para a construção de um futuro mais compassivo e equitativo para todos.
-
-
-            Cada pequeno gesto de doação é um passo na direção certa, mostrando como a empatia e a responsabilidade podem fazer do nosso mundo um lugar melhor.
+          <p><strong>Abrace a educação:</strong>Doar livros, materiais escolares, instrumentos musicais, ferramentas de arte e brinquedos abre portas para o conhecimento e o futuro. Uma doação pode iluminar mentes e inspirar sonhos.</p>
+          <p>
+            <strong>Cuide da saúde:</strong> Doar medicamentos, produtos de higiene, itens de limpeza e itens de primeiros socorros garante bem-estar e previne doenças. Uma doação pode salvar vidas e aliviar o sofrimento.
 
           </p>
         </div>
@@ -231,7 +236,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
