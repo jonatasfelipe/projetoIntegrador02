@@ -25,8 +25,8 @@ function Home() {
     setValues((prevValue: any) => ({ ...prevValue, [value.target.name]: value.target.value, }));
   };
 
-  const handleClickButton2 = () => {
-
+  const handleClickButton2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     const response = confirm("Confirma ajudar agora?  ");
     if (response) {
       //alert("1");
@@ -35,6 +35,7 @@ function Home() {
         Axios.put('https://projeto-integrador02-backend.vercel.app/contribua/' + values.ChkSim)
           .then(response => {
             alert('Doação atendida!!');
+            window.location.replace("https://projeto-integrador02.vercel.app/");
           })
           .catch(error => {
             alert(error.response.data);
