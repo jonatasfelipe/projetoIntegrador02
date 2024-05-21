@@ -228,6 +228,7 @@ function Home() {
               {data.map((item, index) => (
                 <div className='card' key={index}>
                   <p> Nome do Doador: {item.Name ? item.Name : 'Anônimo'}
+                    <br></br>Email: {item.Email}
                     <br></br>Mensagem: {item.Message}
                   </p>
                 </div>
